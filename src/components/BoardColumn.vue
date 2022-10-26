@@ -39,6 +39,7 @@ import ColumnTask from './ColumnTask'
 import AppDrag from './AppDrag'
 import AppDrop from './AppDrop'
 import movingTasksAndColumnsMixin from '@/mixins/movingTasksAndColumnsMixin'
+import { useBoardStore } from '../store'
 
 export default {
   components: {
@@ -56,7 +57,8 @@ export default {
       e.dataTransfer.setData('type', 'column')
     },
     createTask (e, tasks) {
-      this.$store.commit('CREATE_TASK', {
+      const store = useBoardStore()
+      store.createTask({
         tasks,
         name: e.target.value
       })
