@@ -30,7 +30,7 @@ export const useBoardStore = defineStore('board', {
       })
     },
     createColumn ({ name }) {
-      this.board.columns.push({
+      board.columns.push({
         name,
         tasks: []
       })
@@ -43,7 +43,7 @@ export const useBoardStore = defineStore('board', {
       toTasks.splice(toTaskIndex, 0, taskToMove)
     },
     moveColumn ({ fromColumnIndex, toColumnIndex }) {
-      const columnList = this.board.columns
+      const columnList = board.columns
 
       const columnToMove = columnList.splice(fromColumnIndex, 1)[0]
       columnList.splice(toColumnIndex, 0, columnToMove)
